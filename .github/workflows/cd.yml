@@ -22,7 +22,7 @@ jobs:
           script: |
             cd /var/www/apps
             rm -R FreshFruitLaravel
-            git clone https://github.com/adnst1302/FreshFruitLaravel
+            git clone https://github.com/haxorsprogramming/FreshFruitLaravel
             cp .env_freshFruit FreshFruitLaravel/.env
             cd FreshFruitLaravel
             # git pull origin main

@@ -10,4 +10,8 @@ class C_Auth extends Controller
     {
         
     }
+    public function LoginProses(Request $request)
+    {
+
+    }
 }

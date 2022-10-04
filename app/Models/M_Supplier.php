@@ -2,10 +2,15 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class M_Supplier extends Model
 {
-    use HasFactory;
+    protected $table = "tbl_supplier";
+    protected $fillable = [
+        'kd_supplier',
+        'nama_supplier',
+        'no_hp',
+        'alamat'
+    ];
 }
