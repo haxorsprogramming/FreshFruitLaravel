@@ -1,0 +1,31 @@
+name: cd
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  cd:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Deploy Using ssh
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          script: |
+            cd /var/www/apps
+            rm -R FreshFruitLaravel
+            git clone https://github.com/adnst1302/FreshFruitLaravel
+            cp .env_freshFruit FreshFruitLaravel/.env
+            cd FreshFruitLaravel
+            # git pull origin main
+            composer update
+            php artisan migrate:refresh --seed
+            exit
