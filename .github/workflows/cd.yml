@@ -26,6 +26,6 @@ jobs:
             cp .env_freshFruit FreshFruitLaravel/.env
             cd FreshFruitLaravel
             # git pull origin main
-            composer update
-            php artisan migrate:refresh --seed
+            # composer update
+            # php artisan migrate:refresh --seed
             exit
